@@ -16,7 +16,9 @@ class AcceptFeedbackTest extends TestCase
         $feedback = app(FeedbackUseCases::class)->acceptFeedback(new AcceptFeedbackData(
             title: 'Test title',
             description: 'Test description',
-            datetime: new \DateTime()
+            datetime: new \DateTime(),
+            service_name: 'Магазин',
+            rating: 3
         ));
 
         $this->assertEquals('Test title', $feedback->title);
@@ -28,7 +30,9 @@ class AcceptFeedbackTest extends TestCase
         $response = $this->postJson(route('api.feedbacks.store'), [
             'title' => 'Test title',
             'description' => 'Test description',
-            'datetime' => time()
+            'datetime' => time(),
+            'service_name' => 'Магазин',
+            'rating' => 3,
         ]);
 
         $response->assertStatus(201);
@@ -40,6 +44,8 @@ class AcceptFeedbackTest extends TestCase
         $responseFeedback->assertJson([
             'title' => 'Test title',
             'description' => 'Test description',
+            'service_name' => 'Магазин',
+            'rating' => 3,
         ]);
     }
 }

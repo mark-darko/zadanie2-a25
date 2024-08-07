@@ -20,6 +20,8 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null $datetime
+ * @property string $service_name
+ * @property integer $rating
  * @method static \Illuminate\Database\Eloquent\Builder|Feedback newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Feedback newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Feedback query()
